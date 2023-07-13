@@ -6,7 +6,7 @@ const About = () => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ['start end','center start']
+    offset: ['start end','center center']
   });
 
   const opacity = useTransform(scrollYProgress,[0,1],[0,1]);
