@@ -11,6 +11,9 @@ import {
 } from "react-icons/bi";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import Navbar from "./components/Navbar";
+import Resume from "./components/Resume";
+import { Link } from "react-scroll";
+import { motion } from "framer-motion";
 
 const App = () => {
   return (
@@ -28,8 +31,9 @@ const App = () => {
             <span className="border-r border-white border-opacity-5"></span>
           </div>
 
-          <div className=" relative z-30 min-h-screen">
-            <div className="section-home">
+          <div
+          className=" relative z-30 min-h-screen px-5 md:px-0 scroll-smooth">
+            <div className="section-home" id="hero">
               <div className="herosection relative overflow-hidden">
                 <div className="herosection-content relative z-20 bg-grey-darken  bg-opacity-20">
                   <div className=" container mx-auto relative">
@@ -168,13 +172,13 @@ const App = () => {
                           style={{ opacity: 1, transform: "none" }}
                           className="herosection-bottom absolute left-0 top-auto bottom-10 w-full justify-between text-center"
                         >
-                          <a
-                            href=""
+                          <Link
+                            activeClass="active-nav" to="about" spy={true} smooth={true} offset={0} duration={500}
                             className=" cursor-pointer text-xs font-medium uppercase tracking-widest transition-all hover:text-primary"
                           >
                             <AiOutlineArrowDown className=" inline animate-bounce text-base" />
                             <span className="pl-2">Scroll Down</span>
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -184,6 +188,7 @@ const App = () => {
             </div>
 
             <About />
+            <Resume/>
           </div>
         </main>
       </div>
