@@ -11,13 +11,14 @@ import {
 } from "react-icons/bi";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import Navbar from "./components/Navbar";
+import Skills from "./components/skills/Skills";
+import Work from "./components/work/Work";
 
 const App = () => {
   return (
-    <div className=" wrapper relative min-h-screen w-full bg-grey blurredBg">
+    <div className=" overflow-x-hidden">
       <div>
-
-        <Navbar/>
+        <Navbar />
 
         <main className=" page-content relative bg-grey bg-opacity-95 backdrop-blur-lg backdrop-filter">
           <div className="bglines fixed left-0 top-0 z-20 flex h-screen w-full justify-around">
@@ -184,6 +185,8 @@ const App = () => {
             </div>
 
             <About />
+            <Skills />
+            <Work />
           </div>
         </main>
       </div>
