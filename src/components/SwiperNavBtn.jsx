@@ -12,13 +12,13 @@ const SwiperNavBtn = () => {
           className=" next&prev border-2 rounded-full px-2 transition hover:border-[#72e2ae] py-2"
           onClick={() => swiper.slidePrev()}
         >
-          <FcPrevious />
+          <FcPrevious className="text-white hover:text-[#72e2ae]" />
         </button>
         <button
           className=" next&prev border-2 rounded-full px-2 transition hover:border-[#72e2ae] py-2"
           onClick={() => swiper.slideNext()}
         >
-          <FcNext />
+          <FcNext className="text-white hover:text-[#72e2ae]" />
         </button>
       </div>
     </div>

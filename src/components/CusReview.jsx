@@ -1,6 +1,12 @@
 import React, { useRef } from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Navigation, Pagination, EffectFade, A11y } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  EffectFade,
+  A11y,
+  Autoplay,
+} from "swiper/modules";
 import "../App.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -59,14 +65,29 @@ const CusReview = () => {
 
           <Swiper
             // install Swiper modules
-            modules={[Navigation, Pagination, A11y, EffectFade]}
+            modules={[Navigation, Pagination, A11y, EffectFade, Autoplay]}
             spaceBetween={20}
-            slidesPerView={3}
+            slidesPerView={1}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+            }}
+            autoplay={true}
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log("slide change")}
           >
             <SwiperSlide>
-              <div className=" w-[397px] mr-28px">
+              <div className=" w-full md:max-w-[397px] mr-28px">
                 <div className=" mt-11 p-4 md:p-5 card">
                   <div className=" -mt-14 mb-4 inline-block h-20 w-20 overflow-hidden rounded-full border-4 border-opacity-10 border-primary md:-mt-16">
                     <span className=" span-1">
@@ -101,7 +122,7 @@ const CusReview = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className=" w-[397px] mr-28px">
+              <div className=" max-w-[397px] mr-28px">
                 <div className=" mt-11 p-4 md:p-5 card">
                   <div className=" -mt-14 mb-4 inline-block h-20 w-20 overflow-hidden rounded-full border-4 border-opacity-10 border-primary md:-mt-16">
                     <span className=" span-1">
@@ -136,7 +157,7 @@ const CusReview = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className=" w-[397px] mr-28px">
+              <div className=" max-w-[397px] mr-28px">
                 <div className=" mt-11 p-4 md:p-5 card">
                   <div className=" -mt-14 mb-4 inline-block h-20 w-20 overflow-hidden rounded-full border-4 border-opacity-10 border-primary md:-mt-16">
                     <span className=" span-1">
@@ -171,7 +192,7 @@ const CusReview = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className=" w-[397px] mr-28px">
+              <div className=" max-w-[397px] mr-28px">
                 <div className=" mt-11 p-4 md:p-5 card">
                   <div className=" -mt-14 mb-4 inline-block h-20 w-20 overflow-hidden rounded-full border-4 border-opacity-10 border-primary md:-mt-16">
                     <span className=" span-1">
@@ -206,7 +227,7 @@ const CusReview = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide>
-              <div className=" w-[397px] mr-28px">
+              <div className=" max-w-[397px] mr-28px">
                 <div className=" mt-11 p-4 md:p-5 card">
                   <div className=" -mt-14 mb-4 inline-block h-20 w-20 overflow-hidden rounded-full border-4 border-opacity-10 border-primary md:-mt-16">
                     <span className=" span-1">
