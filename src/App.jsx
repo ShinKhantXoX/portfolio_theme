@@ -16,6 +16,7 @@ import Work from "./components/work/Work";
 import Resume from "./components/Resume";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
+import CusReview from "./components/CusReview";
 
 const App = () => {
   return (
@@ -32,8 +33,7 @@ const App = () => {
             <span className="border-r border-white border-opacity-5"></span>
           </div>
 
-          <div
-          className=" relative z-30 min-h-screen px-5 md:px-0 scroll-smooth">
+          <div className=" relative z-30 min-h-screen px-5 md:px-0 scroll-smooth">
             <div className="section-home" id="hero">
               <div className="herosection relative overflow-hidden">
                 <div className="herosection-content relative z-20 bg-grey-darken  bg-opacity-20">
@@ -174,7 +174,12 @@ const App = () => {
                           className="herosection-bottom absolute left-0 top-auto bottom-10 w-full justify-between text-center"
                         >
                           <Link
-                            activeClass="active-nav" to="about" spy={true} smooth={true} offset={0} duration={500}
+                            activeClass="active-nav"
+                            to="about"
+                            spy={true}
+                            smooth={true}
+                            offset={0}
+                            duration={500}
                             className=" cursor-pointer text-xs font-medium uppercase tracking-widest transition-all hover:text-primary"
                           >
                             <AiOutlineArrowDown className=" inline animate-bounce text-base" />
@@ -189,6 +194,8 @@ const App = () => {
             </div>
 
             <About />
+            <Resume />
+            <CusReview />
             <Skills />
             <Work />
             <Resume/>
