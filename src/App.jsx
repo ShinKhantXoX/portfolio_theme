@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import Typewriter from "typewriter-effect";
 import About from "./components/About";
+import Form from "./components/Form";
+
 import {
   BiLogoFacebook,
   BiLogoTwitter,
@@ -19,8 +21,7 @@ const App = () => {
   return (
     <div className=" wrapper relative min-h-screen w-full bg-grey blurredBg">
       <div>
-
-        <Navbar/>
+        <Navbar />
 
         <main className=" page-content relative bg-grey bg-opacity-95 backdrop-blur-lg backdrop-filter">
           <div className="bglines fixed left-0 top-0 z-20 flex h-screen w-full justify-around">
@@ -31,8 +32,7 @@ const App = () => {
             <span className="border-r border-white border-opacity-5"></span>
           </div>
 
-          <div
-          className=" relative z-30 min-h-screen px-5 md:px-0 scroll-smooth">
+          <div className=" relative z-30 min-h-screen px-5 md:px-0 scroll-smooth">
             <div className="section-home" id="hero">
               <div className="herosection relative overflow-hidden">
                 <div className="herosection-content relative z-20 bg-grey-darken  bg-opacity-20">
@@ -173,7 +173,12 @@ const App = () => {
                           className="herosection-bottom absolute left-0 top-auto bottom-10 w-full justify-between text-center"
                         >
                           <Link
-                            activeClass="active-nav" to="about" spy={true} smooth={true} offset={0} duration={500}
+                            activeClass="active-nav"
+                            to="about"
+                            spy={true}
+                            smooth={true}
+                            offset={0}
+                            duration={500}
                             className=" cursor-pointer text-xs font-medium uppercase tracking-widest transition-all hover:text-primary"
                           >
                             <AiOutlineArrowDown className=" inline animate-bounce text-base" />
@@ -188,7 +193,8 @@ const App = () => {
             </div>
 
             <About />
-            <Resume/>
+            <Resume />
+            <Form />
           </div>
         </main>
       </div>
