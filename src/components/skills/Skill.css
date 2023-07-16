@@ -1,0 +1,16 @@
+#left-right-ani {
+  animation-name: "lefttorightani";
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes lefttorightani {
+  from {
+    top: 0;
+    left: 0;
+  }
+  to {
+    top: 0;
+    right: 0;
+  }
+}

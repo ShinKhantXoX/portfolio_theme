@@ -79,7 +79,6 @@ p {
 }
 
 /* header */
-
 .btn,
 .btn > * {
   position: relative;
@@ -303,10 +302,27 @@ p {
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
-
 .animate-bounce {
   -webkit-animation: bounce 1s infinite;
   animation: bounce 1s infinite;
+}
+
+.left-right-ani {
+  background-color: #72e2ae;
+  animation-name: lefttorightani;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in-out forward;
+  animation-iteration-count: infinite;
+}
+
+@keyframes lefttorightani {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(130px);
+  }
+
 }
 
 /* about */

@@ -11,6 +11,8 @@ import {
 } from "react-icons/bi";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import Navbar from "./components/Navbar";
+import Skills from "./components/skills/Skills";
+import Work from "./components/work/Work";
 import Resume from "./components/Resume";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
@@ -18,7 +20,7 @@ import CusReview from "./components/CusReview";
 
 const App = () => {
   return (
-    <div className=" wrapper relative min-h-screen w-full bg-grey blurredBg">
+    <div className=" overflow-x-hidden">
       <div>
         <Navbar />
 
@@ -194,6 +196,9 @@ const App = () => {
             <About />
             <Resume />
             <CusReview />
+            <Skills />
+            <Work />
+            <Resume/>
           </div>
         </main>
       </div>
