@@ -5,7 +5,7 @@ import Skillbar from "./Skillbar";
 
 const Skills = () => {
   return (
-    <div className="container mx-auto flex flex-col gap-3">
+    <div className=" flex  flex-col gap-3">
       <Skilltitle />
       <Skillring />
       <Skillbar />

@@ -47,7 +47,7 @@ const Skillbar = () => {
     },
   ];
   return (
-    <div className=" flex flex-wrap flex-col md:flex-row  lg:flex-row justify-center gap-5 mt-[30px]">
+    <div className=" flex flex-wrap flex-col md:flex-row  lg:flex-row justify-between gap-5 mt-[30px]">
       {BAR?.map((item) => (
         <Skillbars
           key={item?.id}

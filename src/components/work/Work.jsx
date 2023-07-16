@@ -4,7 +4,7 @@ import Workcase from "./Workcase";
 
 const Work = () => {
   return (
-    <div className=" mt-[150px]">
+    <div className="  mt-[150px]">
       <Worktitle />
       <Workcase />
     </div>

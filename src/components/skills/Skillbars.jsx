@@ -24,7 +24,7 @@ const Skillbars = ({ name, percentagetext }) => {
   return (
     <div
       ref={ref}
-      className="flex flex-col  gap-2 w-[90%] lg:w-[40%] md:w-[40%]"
+      className="flex flex-col  gap-2 w-[90%] lg:w-[45%] md:w-[40%]"
     >
       {" "}
       <div className=" flex flex-col gap-2">

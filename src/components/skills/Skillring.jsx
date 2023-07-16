@@ -7,7 +7,7 @@ const Skillring = () => {
   useInView();
   return (
     <div className=" w-full">
-      <div className=" flex justify-center gap-5 flex-wrap">
+      <div className=" flex justify-between  gap-5 flex-wrap">
         <div className=" bg-[#0f1b31] hover:translate-y-[-10px] transition-all shadow-md border-gray-800 rounded-sm border-[0.1px] h-fit p-2 flex flex-col gap-2 items-center w-[90%] lg:w-[20%] md:w-[40%]">
           <RingProgress
             sections={[{ value: 85, color: "#72e2ae" }]}

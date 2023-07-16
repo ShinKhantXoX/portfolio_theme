@@ -33,7 +33,7 @@ const App = () => {
             <span className="border-r border-white border-opacity-5"></span>
           </div>
 
-          <div className=" relative z-30 min-h-screen px-5 md:px-0 scroll-smooth">
+          <div className=" relative z-30 min-h-screen container mx-auto px-5 md:px-10 lg:px-10 scroll-smooth">
             <div className="section-home" id="hero">
               <div className="herosection relative overflow-hidden">
                 <div className="herosection-content relative z-20 bg-grey-darken  bg-opacity-20">
@@ -197,7 +197,7 @@ const App = () => {
             <CusReview />
             <Skills />
             <Work />
-            <Resume/>
+            <Resume />
           </div>
         </main>
       </div>
