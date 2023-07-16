@@ -194,7 +194,6 @@ const App = () => {
             </div>
 
             <About />
-            <Resume />
             <CusReview />
             <Skills />
             <Work />
