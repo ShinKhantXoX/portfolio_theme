@@ -1,57 +1,105 @@
 import { RingProgress } from "@mantine/core";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useAnimate, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const Skillring = () => {
-  useInView();
+  const [ref,inView] = useInView();
+  const [uiWidth, setUiWidth] = useState(0);
+  const [backend,setBackend] = useState(0);
+  const [frontend, setFrontend] = useState(0);
+  const [mobile, setMobile] = useState(0);
+
+  useEffect(() => {
+    if(inView){
+      const interval = setInterval(() => {
+        if (inView === true && uiWidth < 85) {
+          setUiWidth((prev) => prev + 5);
+        }
+        if(inView === true && backend < 80){
+          setBackend((prev) => prev +5)
+        }
+        if(inView === true && frontend < 95){
+          setFrontend((prev) => prev + 5);
+        }
+        if(inView === true && mobile < 75){
+          setMobile((prev) => prev + 5)
+        }
+      }, 50);
+
+      return () => clearInterval(interval);
+    }
+
+    if(!inView){
+      const interval = setInterval(() => {
+        if (inView === false && uiWidth > 0) {
+          setUiWidth((prev) => prev - 5);
+        }
+        if(inView === false && backend > 0){
+          setBackend((prev) => prev - 5)
+        }
+        if(inView === false && frontend > 0) {
+          setFrontend((prev) => prev -5);
+        }
+        if(inView === false && mobile > 0){
+          setMobile((prev) => prev -5);
+        }
+      }, 50);
+
+      return () => clearInterval(interval);
+    }
+    
+  }, [inView,uiWidth,backend,frontend,mobile])
+
+  console.log(frontend);
+
   return (
     <div className=" w-full">
-      <div className=" flex justify-between  gap-5 flex-wrap">
+      <div ref={ref} className=" flex justify-between  gap-5 flex-wrap">
         <div className=" bg-[#0f1b31] hover:translate-y-[-10px] transition-all shadow-md border-gray-800 rounded-sm border-[0.1px] h-fit p-2 flex flex-col gap-2 items-center w-[90%] lg:w-[20%] md:w-[40%]">
           <RingProgress
-            sections={[{ value: 85, color: "#72e2ae" }]}
+            sections={[{ value: uiWidth, color: "#72e2ae" }]}
             rootColor="#2d4a4e"
             roundCaps
             size={150}
             thickness={12}
-            label={<p className=" text-center font-semibold">85%</p>}
+            label={<p className=" text-center font-semibold">{uiWidth}%</p>}
           />
 
           <p className=" text-white font-semibold">UI/UX Design</p>
         </div>
         <div className=" bg-[#0f1b31] hover:translate-y-[-10px] transition-all shadow-md border-gray-800 rounded-sm border-[0.1px] h-fit p-2 flex flex-col gap-2 items-center w-[90%] lg:w-[20%] md:w-[40%]">
           <RingProgress
-            sections={[{ value: 80, color: "#72e2ae" }]}
+            sections={[{ value: backend, color: "#72e2ae" }]}
             rootColor="#2d4a4e"
             roundCaps
             size={150}
             thickness={12}
-            label={<p className=" text-center font-semibold">80%</p>}
+            label={<p className=" text-center font-semibold">{backend}%</p>}
           />
 
           <p className=" text-white font-semibold">Backend Development</p>
         </div>
         <div className=" bg-[#0f1b31] hover:translate-y-[-10px] transition-all shadow-md border-gray-800 rounded-sm border-[0.1px] h-fit p-2 flex flex-col gap-2 items-center w-[90%] lg:w-[20%] md:w-[40%]">
           <RingProgress
-            sections={[{ value: 95, color: "#72e2ae" }]}
+            sections={[{ value: frontend, color: "#72e2ae" }]}
             rootColor="#2d4a4e"
             roundCaps
             size={150}
             thickness={12}
-            label={<p className=" text-center font-semibold">95%</p>}
+            label={<p className=" text-center font-semibold">{frontend}%</p>}
           />
 
           <p className=" text-white font-semibold">Frontend Development</p>
         </div>
         <div className=" hover:translate-y-[-10px] transition-all bg-[#0f1b31] shadow-md border-gray-800 rounded-sm border-[0.1px] h-fit p-2 flex flex-col gap-2 items-center w-[90%] lg:w-[20%] md:w-[40%]">
           <RingProgress
-            sections={[{ value: 75, color: "#72e2ae" }]}
+            sections={[{ value: mobile, color: "#72e2ae" }]}
             rootColor="#2d4a4e"
             roundCaps
             size={150}
             thickness={12}
-            label={<p className=" text-center font-semibold">75%</p>}
+            label={<p className=" text-center font-semibold">{mobile}%</p>}
           />
 
           <p className=" text-white font-semibold">Mobile App Development</p>
