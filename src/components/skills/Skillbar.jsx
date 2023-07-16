@@ -1,8 +1,32 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { motion, useAnimate, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import Skillbars from "./Skillbars";
 
 const Skillbar = () => {
+  const { ref, inView } = useInView();
+  const animation = useAnimation();
+  useEffect(() => {
+    console.log(inView + " this is inview");
+    if (inView) {
+      animation.start({
+        y: "0px",
+
+        opacity: "100%",
+
+        transition: { duration: 1 },
+      });
+    }
+
+    if (!inView) {
+      animation.start({
+        y: "100px",
+
+        opacity: "0%",
+        // transition:{duration: 1 }
+      });
+    }
+  }, [inView]);
   const BAR = [
     {
       name: "Javascript",
@@ -47,7 +71,11 @@ const Skillbar = () => {
     },
   ];
   return (
-    <div className=" flex flex-wrap flex-col md:flex-row  lg:flex-row justify-between gap-5 mt-[30px]">
+    <motion.div
+      ref={ref}
+      animate={animation}
+      className=" flex flex-wrap flex-col md:flex-row  lg:flex-row justify-between gap-5 mt-[30px]"
+    >
       {BAR?.map((item) => (
         <Skillbars
           key={item?.id}
@@ -55,7 +83,7 @@ const Skillbar = () => {
           percentagetext={item?.percentagetext}
         />
       ))}
-    </div>
+    </motion.div>
   );
 };
 

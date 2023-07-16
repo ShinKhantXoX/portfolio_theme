@@ -1,11 +1,37 @@
 import React from "react";
 // import "./Work.css";
+import { useEffect, useState } from "react";
+import { motion, useAnimate, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { AiFillGithub } from "react-icons/ai";
 const Workcase = () => {
+  const animation = useAnimation();
+  const { ref, inView } = useInView();
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        x: "0px",
+        opacity: "100%",
+
+        transition: { duration: 1 },
+      });
+    }
+
+    if (!inView) {
+      animation.start({
+        x: "100px",
+        opacity: "0%",
+      });
+    }
+  }, [inView]);
   return (
-    <div className=" flex flex-wrap flex-col justify-between items-center lg:flex-row md:flex-row  mt-[50px]">
-      <div className="flex group hover:translate-y-[-2px]  h-[55vh] lg:h-[55vh] md:h-[40vh] transition-all overflow-x-hidden  flex-col gap-5 bg-[#1a1a34] w-[90%] lg:w-[24%] md:w-[40%] shadow-lg p-5 border-gray-800 border-[1px]">
-        <div className="overflow-x-hidden   w-full bg-[url('./assets/Tour.png')] bg-no-repeat bg-cover lg:h-[30vh] h-[30vh] md:h-[20vh] ">
+    <motion.div
+      animate={animation}
+      ref={ref}
+      className=" flex flex-wrap flex-col gap-1 justify-between items-center lg:flex-row md:flex-row  mt-[50px]"
+    >
+      <div className="flex group hover:translate-y-[-2px]  h-[55vh] lg:h-[55vh] md:h-[40vh] transition-all overflow-x-hidden  flex-col gap-5 bg-[#1a1a34] w-[90%] lg:w-[24.5%] md:w-[46%] shadow-lg p-5 border-gray-800 border-[1px]">
+        <div className="overflow-x-hidden   w-full bg-[url('./assets/Tour.png')] bg-no-repeat bg-cover lg:h-[23vh] h-[30vh] md:h-[20vh] ">
           <div className=" translate-x-[-600px] gap-5 background-img items-center group-hover:translate-x-0  duration-[0.8s] ease-in-out flex justify-center w-full h-full bg-black opacity-[90%]">
             <a className=" cursor-pointer bg-[#04b261] rounded-full p-3 text-white">
               <AiFillGithub className="text-[20px]" />
@@ -29,18 +55,17 @@ const Workcase = () => {
           </div>
         </div>
 
-        <div className=" flex flex-col gap-2  pointer-events-none">
-          <span className="text-2xl font-semibold">Travel Tour Page</span>
+        <motion.dev className=" flex flex-col gap-2  pointer-events-none">
+          <span className="text-2xl font-semibold">Travel App</span>
           <p className=" text-gray-500">
-            This page is for booking to travel around wonderful places and enjoy
-            seesight of them.You can book in website by email and pay the price
-            with whatever methods you wish.
+            This pages is all about tour which are very popular among people and
+            with an amazing sightseeing.
           </p>
-        </div>
+        </motion.dev>
       </div>
 
-      <div className="flex group hover:translate-y-[-2px] h-[55vh] lg:h-[55vh] md:h-[40vh] transition-all overflow-x-hidden  flex-col gap-5 bg-[#1a1a34] w-[90%] lg:w-[24%] md:w-[40%] shadow-lg p-5 border-gray-800 border-[1px]">
-        <div className="overflow-x-hidden   w-full bg-[url('./assets/Dashboard.png')] bg-no-repeat bg-cover lg:h-[30vh] h-[30vh] md:h-[20vh] ">
+      <div className="flex group hover:translate-y-[-2px] h-[55vh] lg:h-[55vh] md:h-[40vh] transition-all overflow-x-hidden  flex-col gap-5 bg-[#1a1a34] w-[90%] lg:w-[24.5%] md:w-[46%] shadow-lg p-5 border-gray-800 border-[1px]">
+        <div className="overflow-x-hidden   w-full bg-[url('./assets/Dashboard.png')] bg-no-repeat bg-cover lg:h-[23vh] h-[30vh] md:h-[20vh] ">
           <div className=" translate-x-[-600px] md:translate-x-[-900px] lg:translate-x-[-340px] gap-5 background-img items-center group-hover:translate-x-0  duration-[0.8s] ease-in-out flex justify-center w-full h-full bg-black opacity-[90%]">
             <a className=" cursor-pointer bg-[#04b261] rounded-full p-3 text-white">
               <AiFillGithub className="text-[20px]" />
@@ -68,13 +93,13 @@ const Workcase = () => {
           <span className="text-2xl font-semibold">Dashboard</span>
           <p className=" text-gray-500">
             This is admin dashboard for hotel booking app.You can see the person
-            who book in the dashboard and you can watch details all of them.
+            who book in the dashboard.
           </p>
         </div>
       </div>
 
-      <div className="flex group hover:translate-y-[-2px]  h-[55vh] lg:h-[55vh] md:h-[40vh] transition-all overflow-x-hidden  flex-col gap-5 bg-[#1a1a34] w-[90%] lg:w-[24%] md:w-[40%] shadow-lg p-5 border-gray-800 border-[1px]">
-        <div className="overflow-x-hidden   w-full bg-[url('./assets/Contact.png')] bg-no-repeat bg-cover lg:h-[27vh] h-[30vh] md:h-[20vh] ">
+      <div className="flex group hover:translate-y-[-2px]  h-[55vh] lg:h-[55vh] md:h-[40vh] transition-all overflow-x-hidden  flex-col gap-5 bg-[#1a1a34] w-[90%] lg:w-[24.5%] md:w-[46%] shadow-lg p-5 border-gray-800 border-[1px]">
+        <div className="overflow-x-hidden   w-full bg-[url('./assets/Contact.png')] bg-no-repeat bg-cover lg:h-[23vh] h-[30vh] md:h-[20vh] ">
           <div className=" translate-x-[-600px] gap-5 background-img items-center group-hover:translate-x-0  duration-[0.8s] ease-in-out flex justify-center w-full h-full bg-black opacity-[90%]">
             <a className=" cursor-pointer bg-[#04b261] rounded-full p-3 text-white">
               <AiFillGithub className="text-[20px]" />
@@ -102,16 +127,15 @@ const Workcase = () => {
           <span className="text-2xl font-semibold">Content App</span>
           <p className=" text-gray-500">
             This page is all about the contents you make will be shown.It
-            includes CRUD and Bin process.But,at first,you need to log or sign
-            in.
+            includes CRUD and Bin process.
           </p>
         </div>
       </div>
 
-      <div className="flex group hover:translate-y-[-2px]  h-[55vh] lg:h-[55vh] md:h-[40vh] transition-all overflow-x-hidden  flex-col gap-5 bg-[#1a1a34] w-[90%] lg:w-[24%] md:w-[40%] shadow-lg p-5 border-gray-800 border-[1px]">
-        <div className="overflow-x-hidden   w-full bg-[url('https://tf-react-bieber.vercel.app/images/portfolios/portfolio-image-19.jpg')] bg-no-repeat bg-cover lg:h-[30vh] h-[30vh] md:h-[20vh] ">
+      <div className="flex group hover:translate-y-[-2px]  h-[55vh] lg:h-[55vh] md:h-[40vh] transition-all overflow-x-hidden  flex-col gap-5 bg-[#1a1a34] w-[90%] lg:w-[24.5%] md:w-[46%] shadow-lg p-5 border-gray-800 border-[1px]">
+        <div className="overflow-x-hidden   w-full bg-[url('https://images.unsplash.com/photo-1512850183-6d7990f42385?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80')] bg-no-repeat bg-cover lg:h-[23vh] h-[30vh] md:h-[20vh] ">
           <div className=" translate-x-[-600px] gap-5 background-img items-center group-hover:translate-x-0  duration-[0.8s] ease-in-out flex justify-center w-full h-full bg-black opacity-[90%]">
-            <a className=" cursor-pointer bg-[#04b261] rounded-full  p-3 text-white">
+            <a className=" cursor-pointer bg-[#04b261] rounded-full p-3 text-white">
               <AiFillGithub className="text-[20px]" />
             </a>
             <a className="cursor-pointer bg-[#04b261] rounded-full p-3 text-white">
@@ -133,16 +157,15 @@ const Workcase = () => {
           </div>
         </div>
 
-        <div className=" flex flex-col gap-2 pointer-events-none">
-          <span className="text-2xl font-semibold">Travel Tour Page</span>
+        <div className=" flex flex-col gap-2  pointer-events-none">
+          <span className="text-2xl font-semibold">Travel App</span>
           <p className=" text-gray-500">
-            This page is for booking to travel around wonderful places and enjoy
-            seesight of them.You can book in website by email and pay the price
-            with whatever methods you wish.
+            This pages is all about tour which are very popular among people and
+            with an amazing sightseeing.
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -4,58 +4,74 @@ import { motion, useAnimate, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const Skillring = () => {
-  const [ref,inView] = useInView();
+  const [ref, inView] = useInView();
   const [uiWidth, setUiWidth] = useState(0);
-  const [backend,setBackend] = useState(0);
+  const [backend, setBackend] = useState(0);
   const [frontend, setFrontend] = useState(0);
   const [mobile, setMobile] = useState(0);
-
+  const animation = useAnimation();
   useEffect(() => {
-    if(inView){
+    if (inView) {
+      animation.start({
+        x: "0px",
+        opacity: "100%",
+
+        transition: { duration: 1 },
+      });
       const interval = setInterval(() => {
         if (inView === true && uiWidth < 85) {
           setUiWidth((prev) => prev + 5);
         }
-        if(inView === true && backend < 80){
-          setBackend((prev) => prev +5)
+        if (inView === true && backend < 80) {
+          setBackend((prev) => prev + 5);
         }
-        if(inView === true && frontend < 95){
+        if (inView === true && frontend < 85) {
           setFrontend((prev) => prev + 5);
         }
-        if(inView === true && mobile < 75){
-          setMobile((prev) => prev + 5)
+        if (inView === true && mobile < 75) {
+          setMobile((prev) => prev + 5);
         }
-      }, 50);
+      }, 1.3);
 
       return () => clearInterval(interval);
     }
 
-    if(!inView){
+    if (!inView) {
+      animation.start({
+        x: "-100px",
+        opacity: "0%",
+      });
       const interval = setInterval(() => {
         if (inView === false && uiWidth > 0) {
           setUiWidth((prev) => prev - 5);
         }
-        if(inView === false && backend > 0){
-          setBackend((prev) => prev - 5)
+        if (inView === false && backend > 0) {
+          setBackend((prev) => prev - 5);
         }
-        if(inView === false && frontend > 0) {
-          setFrontend((prev) => prev -5);
+        if (inView === false && frontend > 0) {
+          setFrontend((prev) => prev - 5);
         }
-        if(inView === false && mobile > 0){
-          setMobile((prev) => prev -5);
+        if (inView === false && mobile > 0) {
+          setMobile((prev) => prev - 5);
         }
-      }, 50);
+      }, 2);
 
       return () => clearInterval(interval);
     }
-    
-  }, [inView,uiWidth,backend,frontend,mobile])
+  }, [inView, uiWidth, backend, frontend, mobile]);
 
   console.log(frontend);
 
   return (
-    <div className=" w-full">
-      <div ref={ref} className=" flex justify-between  gap-5 flex-wrap">
+    <motion.div
+      className=" w-full"
+      ref={ref}
+      animate={animation}
+      // animate={{ x: "0px", opacity: "100%" }}
+      // initial={{ x: "-100px", opacity: "0%" }}
+      // transition={{ duration: "1" }}
+    >
+      <div className=" flex justify-between  gap-5 flex-wrap">
         <div className=" bg-[#0f1b31] hover:translate-y-[-10px] transition-all shadow-md border-gray-800 rounded-sm border-[0.1px] h-fit p-2 flex flex-col gap-2 items-center w-[90%] lg:w-[20%] md:w-[40%]">
           <RingProgress
             sections={[{ value: uiWidth, color: "#72e2ae" }]}
@@ -105,7 +121,7 @@ const Skillring = () => {
           <p className=" text-white font-semibold">Mobile App Development</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

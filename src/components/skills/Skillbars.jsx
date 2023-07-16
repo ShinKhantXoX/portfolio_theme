@@ -10,24 +10,26 @@ const Skillbars = ({ name, percentagetext }) => {
     if (inView) {
       animation.start({
         width: `${percentagetext}`,
-        transition: { duration: 1 },
+
+        opacity: "100%",
+
+        transition: { duration: 1, delay: 0.3 },
       });
     }
 
     if (!inView) {
       animation.start({
         width: `0%`,
+
+        opacity: "0%",
         // transition:{duration: 1 }
       });
     }
   }, [inView]);
   return (
-    <div
-      ref={ref}
-      className="flex flex-col  gap-2 w-[90%] lg:w-[45%] md:w-[40%]"
-    >
+    <div className="flex flex-col  gap-2 w-[90%] lg:w-[45%] md:w-[40%]">
       {" "}
-      <div className=" flex flex-col gap-2">
+      <div ref={ref} className=" flex flex-col gap-2">
         {" "}
         <span className="text-[18px]">
           {name} - <span className="text-[#72e2ae] ">{percentagetext}</span>
