@@ -234,10 +234,10 @@ const Navbar = () => {
                     </a>
                   </li>
                   <li className="inline-block align-middle">
-                    <a className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary">
+                    <Link activeClass="active-nav" to="contact" spy={true} smooth={true} offset={0} duration={500} className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary">
                       Contact
                       <span className="absolute left-0 top-auto bottom-5 inline-block h-px w-full origin-top-right scale-0 bg-primary align-middle transition-transform duration-500 group-hover:origin-top-left group-hover:scale-100"></span>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </nav>

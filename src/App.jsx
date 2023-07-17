@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import Typewriter from "typewriter-effect";
 import About from "./components/About";
+import Form from "./components/Form";
+
 import {
   BiLogoFacebook,
   BiLogoTwitter,
@@ -198,6 +200,7 @@ const App = () => {
             <Skills />
             <Work />
             <Resume />
+            <Form />                  
           </div>
         </main>
       </div>
