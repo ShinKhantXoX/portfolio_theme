@@ -13,13 +13,16 @@ import {
 } from "react-icons/bi";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import Navbar from "./components/Navbar";
+import Skills from "./components/skills/Skills";
+import Work from "./components/work/Work";
 import Resume from "./components/Resume";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
+import CusReview from "./components/CusReview";
 
 const App = () => {
   return (
-    <div className=" wrapper relative min-h-screen w-full bg-grey blurredBg">
+    <div className=" overflow-x-hidden">
       <div>
         <Navbar />
 
@@ -32,7 +35,7 @@ const App = () => {
             <span className="border-r border-white border-opacity-5"></span>
           </div>
 
-          <div className=" relative z-30 min-h-screen px-5 md:px-0 scroll-smooth">
+          <div className=" relative z-30 min-h-screen container mx-auto px-5 md:px-10 lg:px-10 scroll-smooth">
             <div className="section-home" id="hero">
               <div className="herosection relative overflow-hidden">
                 <div className="herosection-content relative z-20 bg-grey-darken  bg-opacity-20">
@@ -193,8 +196,11 @@ const App = () => {
             </div>
 
             <About />
+            <CusReview />
+            <Skills />
+            <Work />
             <Resume />
-            <Form />
+            <Form />                  
           </div>
         </main>
       </div>
