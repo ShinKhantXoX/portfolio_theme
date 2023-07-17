@@ -28,7 +28,7 @@ const Workcase = () => {
     <motion.div
       animate={animation}
       ref={ref}
-      className=" flex flex-wrap flex-col gap-1 justify-between items-center lg:flex-row md:flex-row  mt-[50px]"
+      className=" flex flex-wrap flex-col gap-5 lg:gap-2 justify-between items-center lg:flex-row md:flex-row  mt-[50px]"
     >
       <div className="flex group hover:translate-y-[-2px]  h-[55vh] lg:h-[55vh] md:h-[40vh] transition-all overflow-x-hidden  flex-col gap-5 bg-[#1a1a34] w-[90%] lg:w-[24.5%] md:w-[46%] shadow-lg p-5 border-gray-800 border-[1px]">
         <div className="overflow-x-hidden   w-full bg-[url('./assets/Tour.png')] bg-no-repeat bg-cover lg:h-[23vh] h-[30vh] md:h-[20vh] ">

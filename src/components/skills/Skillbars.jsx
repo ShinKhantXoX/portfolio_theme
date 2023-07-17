@@ -27,7 +27,7 @@ const Skillbars = ({ name, percentagetext }) => {
     }
   }, [inView]);
   return (
-    <div className="flex flex-col  gap-2 w-[90%] lg:w-[45%] md:w-[40%]">
+    <div className="flex flex-col  gap-2 lg:w-[45%] md:w-[40%]">
       {" "}
       <div ref={ref} className=" flex flex-col gap-2">
         {" "}

@@ -74,7 +74,7 @@ const Skillbar = () => {
     <motion.div
       ref={ref}
       animate={animation}
-      className=" flex flex-wrap flex-col md:flex-row  lg:flex-row justify-between gap-5 mt-[30px]"
+      className=" flex flex-wrap flex-col md:flex-row  lg:flex-row justify-center md:justify-between gap-5 mt-[30px]"
     >
       {BAR?.map((item) => (
         <Skillbars

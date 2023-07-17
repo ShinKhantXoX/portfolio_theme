@@ -45,7 +45,7 @@ const CusReview = () => {
         // transition={{ duration: 0.5, delay: 0.25 }}
         id="about"
         ref={targetRef}
-        className=" min-h-screen about-section pt-24 lg:pt-28 xl:pt-32"
+        className=" lg:min-h-screen about-section pt-24 pb-24 md:pb-10 lg:pt-28 xl:pt-32"
       >
         <div className=" container mx-auto">
           <div className="section-heading relative overflow-hidden pb-14 text-center">
