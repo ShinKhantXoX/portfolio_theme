@@ -24,7 +24,7 @@ const About = () => {
         y: 0,
         opacity: 1,
         transition: {
-          type: "spring",
+          type: "keyframes",
           duration: 1,
           bounce: 0.3,
         },
@@ -36,8 +36,8 @@ const About = () => {
         y: "100%",
         opacity: 0,
         transition: {
-          type: "spring",
-          duration: 0.4,
+          type: "keyframes",
+          duration: 0,
           bounce: 0.3,
         },
       });

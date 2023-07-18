@@ -13,7 +13,7 @@ const Skillring = () => {
   useEffect(() => {
     if (inView) {
       animation.start({
-        x: "0px",
+        y: "0px",
         opacity: "100%",
 
         transition: { duration: 1 },
@@ -31,14 +31,14 @@ const Skillring = () => {
         if (inView === true && mobile < 75) {
           setMobile((prev) => prev + 5);
         }
-      }, 1.3);
+      }, 50);
 
       return () => clearInterval(interval);
     }
 
     if (!inView) {
       animation.start({
-        x: "-100px",
+        y: "100px",
         opacity: "0%",
       });
       const interval = setInterval(() => {
@@ -54,16 +54,15 @@ const Skillring = () => {
         if (inView === false && mobile > 0) {
           setMobile((prev) => prev - 5);
         }
-      }, 2);
+      }, 50);
 
       return () => clearInterval(interval);
     }
   }, [inView, uiWidth, backend, frontend, mobile]);
 
-  console.log(frontend);
-
   return (
-    <motion.div
+    <div>
+      <motion.div
       className=" w-full"
       ref={ref}
       animate={animation}
@@ -122,6 +121,7 @@ const Skillring = () => {
         </div>
       </div>
     </motion.div>
+    </div>
   );
 };
 

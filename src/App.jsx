@@ -19,6 +19,7 @@ import Resume from "./components/Resume";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 import CusReview from "./components/CusReview";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -42,9 +43,16 @@ const App = () => {
                   <div className=" container mx-auto relative">
                     <div className=" flex min-h-screen w-full items-center justify-center">
                       <div className=" herosection-content w-full py-20 text-center md:w-3/4">
-                        <div
+                        <motion.div
                           style={{ opacity: 1, transform: "none" }}
                           className=" herosection-imagewrapper relative mb-5 inline-block overflow-hidden rounded-full align-middle"
+                          initial={{ opacity: 0,y: '-100px', scale: 0.8 }}
+                          animate={{ opacity: 1, y: 0, scale : 1 }}
+                          transition={{ duration: 1, bounce: 0.5 }}
+                          whileHover={{
+                            scale: 1.1,
+                            transition: { duration: 1, bounce: 0.3 },
+                          }}
                         >
                           <span className="herosection-imageanimation absolute left-0 top-0 z-10 h-full w-full animate-spin rounded-full bg-gradient-to-tr from-primary to-transparent"></span>
                           <div className="herosection-image fiximage relative z-20 inline-block h-[150px] w-[150px] overflow-hidden rounded-full border-6 border-primary border-opacity-10 align-middle">
@@ -60,7 +68,7 @@ const App = () => {
                               <noscript></noscript>
                             </span>
                           </div>
-                        </div>
+                        </motion.div>
                         <h1
                           className="mb-5 text-heading text-[46px] font-bold flex align-middle justify-center"
                           style={{ opacity: 1, transform: "none" }}
@@ -200,9 +208,11 @@ const App = () => {
             <Skills />
             <Work />
             <Resume />
-            <Form />                  
+            <Form />                 
           </div>
         </main>
+
+        <Footer/> 
       </div>
     </div>
   );

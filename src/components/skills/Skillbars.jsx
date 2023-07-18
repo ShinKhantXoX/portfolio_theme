@@ -6,7 +6,6 @@ const Skillbars = ({ name, percentagetext }) => {
   const { ref, inView } = useInView();
   const animation = useAnimation();
   useEffect(() => {
-    console.log(inView + " this is inview");
     if (inView) {
       animation.start({
         width: `${percentagetext}`,

@@ -83,8 +83,8 @@ const CusReview = () => {
               },
             }}
             autoplay={true}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
+            // onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log("slide change")}
           >
             <SwiperSlide>
               <div className=" w-full md:max-w-[397px] mr-28px">
