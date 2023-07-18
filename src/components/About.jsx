@@ -1,8 +1,11 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const About = () => {
   const targetRef = useRef(null);
+  const [ref, inView] = useInView();
+  const slideUpAni = useAnimation();
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "center center"],
@@ -15,21 +18,46 @@ const About = () => {
     ["-25%", "-15%", "-5%", 0]
   );
 
+  useEffect(() => {
+    if (inView) {
+      slideUpAni.start({
+        y: 0,
+        opacity: 1,
+        transition: {
+          type: "spring",
+          duration: 1,
+          bounce: 0.3,
+        },
+      });
+    }
+
+    if (!inView) {
+      slideUpAni.start({
+        y: "100%",
+        opacity: 0,
+        transition: {
+          type: "spring",
+          duration: 0.4,
+          bounce: 0.3,
+        },
+      });
+    }
+  }, [inView]);
+
   return (
-    <motion.div
-      style={{ opacity, y }}
+    <div
+      // style={{ opacity, y }}
       // initial={{ opacity: 0 }}
       // whileInView={{ opacity: 1 }}
       // viewport={{ root: targetRef }}
-      variants={{
-        hidden: { opacity: 0, y: 75 },
-        visiable: { opacity: 1, y: 0 },
-      }}
+      // variants={{
+      //   hidden: {opacity: 0, y:75},
+      //   visiable: {opacity: 1, y: 0}
+      // }}
       // initial={{opacity, y}}
       // animate={{opacity, y}}
       // transition={{ duration: 0.5, delay: 0.25 }}
       id="about"
-      ref={targetRef}
       className=" min-h-screen about-section pt-24 lg:pt-28 xl:pt-32"
     >
       <div className=" container mx-auto">
@@ -46,9 +74,10 @@ const About = () => {
           </span>
         </div>
 
-        <div className=" grid grid-cols-2 items-center gap-7">
+        <div ref={ref} className=" grid grid-cols-2 items-center gap-7">
           <div className="col-span-2 lg:col-span-1">
-            <div
+            <motion.div
+              animate={slideUpAni}
               className="about-image overflow-hidden rounded-lg"
               style={{ opacity: 1, transform: "none" }}
             >
@@ -95,10 +124,11 @@ const About = () => {
                   <noscript></noscript>
                 </span>
               </div>
-            </div>
+            </motion.div>
           </div>
           <div className="col-span-2 lg:col-span-1">
-            <div
+            <motion.div
+              animate={slideUpAni}
               className="about-content"
               style={{ opacity: 1, transform: "none" }}
             >
@@ -152,11 +182,11 @@ const About = () => {
               <a href="/resume.pdf" className="btn mt-3">
                 <span>Download Resume</span>
               </a>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

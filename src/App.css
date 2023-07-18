@@ -67,6 +67,12 @@ p {
   position: relative;
 }
 
+.card {
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+  --tw-border-opacity: 0.1;
+}
 .blurredBg:before {
   content: "";
   position: fixed;
@@ -78,8 +84,13 @@ p {
   background-size: cover;
 }
 
-/* header */
+.blurredBg .card {
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.05;
+}
 
+
+/* header */
 .btn,
 .btn > * {
   position: relative;
@@ -303,10 +314,27 @@ p {
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
-
 .animate-bounce {
   -webkit-animation: bounce 1s infinite;
   animation: bounce 1s infinite;
+}
+
+.left-right-ani {
+  background-color: #72e2ae;
+  animation-name: lefttorightani;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in-out forward;
+  animation-iteration-count: infinite;
+}
+
+@keyframes lefttorightani {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(130px);
+  }
+
 }
 
 /* about */
@@ -429,6 +457,7 @@ p {
   width: 0.5rem;
   border-radius: 9999px;
   --tw-bg-opacity: 1;
+
   background-color: #72e2ae;
 }
 
@@ -440,4 +469,5 @@ p {
   --tw-bg-opacity: 1;
   background-color: rgb(22 32 51 / var(--tw-bg-opacity));
   --tw-backdrop-blur: blur(12px);
+
 }
