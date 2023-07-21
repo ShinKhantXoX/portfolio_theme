@@ -89,7 +89,6 @@ p {
   --tw-bg-opacity: 0.05;
 }
 
-
 /* header */
 .btn,
 .btn > * {
@@ -284,6 +283,7 @@ p {
 
 .hero-profile {
   position: absolute;
+  object-fit: contain;
   inset: 0px;
   box-sizing: border-box;
   border-radius: 50%;
@@ -334,7 +334,6 @@ p {
   to {
     transform: translateX(130px);
   }
-
 }
 
 /* about */
@@ -469,5 +468,4 @@ p {
   --tw-bg-opacity: 1;
   background-color: rgb(22 32 51 / var(--tw-bg-opacity));
   --tw-backdrop-blur: blur(12px);
-
 }

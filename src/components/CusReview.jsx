@@ -97,7 +97,7 @@ const CusReview = () => {
                         src="https://tf-react-bieber.vercel.app/images/formal-image.png"
                         decoding="async"
                         data-nimg="responsive"
-                        className=" hero-profile"
+                        className=" hero-profile "
                       />
                       <noscript></noscript>
                     </span>

@@ -49,7 +49,7 @@ const Navbar = () => {
               smooth={true}
               offset={0}
               duration={500}
-              className="sitelogo py-2"
+              className="sitelogo py-2 cursor-pointer"
             >
               <span className="h-8 max-h-full w-auto text-primary text-2xl font-bold">
                 Team A
@@ -147,7 +147,7 @@ const Navbar = () => {
                       </Link>
                     </li>
                     <li className="block">
-                    <Link
+                      <Link
                         onClick={() => setToggle(!toggle)}
                         activeClass="active-nav"
                         to="work"
@@ -169,7 +169,7 @@ const Navbar = () => {
                       </a>
                     </li>
                     <li className="block">
-                    <Link
+                      <Link
                         onClick={() => setToggle(!toggle)}
                         activeClass="active-nav"
                         to="contact"
@@ -237,7 +237,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="inline-block align-middle">
-                  <Link
+                    <Link
                       activeClass="active-nav"
                       to="work"
                       spy={true}
@@ -251,7 +251,15 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="inline-block align-middle">
-                    <Link activeClass="active-nav" to="contact" spy={true} smooth={true} offset={0} duration={500} className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary">
+                    <Link
+                      activeClass="active-nav"
+                      to="contact"
+                      spy={true}
+                      smooth={true}
+                      offset={0}
+                      duration={500}
+                      className="group relative inline-block cursor-pointer py-6 text-sm font-medium uppercase tracking-wider text-heading before:text-primary"
+                    >
                       Contact
                       <span className="absolute left-0 top-auto bottom-5 inline-block h-px w-full origin-top-right scale-0 bg-primary align-middle transition-transform duration-500 group-hover:origin-top-left group-hover:scale-100"></span>
                     </Link>

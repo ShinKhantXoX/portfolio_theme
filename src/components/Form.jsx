@@ -80,13 +80,15 @@ const Form = () => {
 
         <div ref={ref} className=" grid grid-cols-9  gap-7">
           <div className=" col-span-9 lg:col-span-4 ">
-            <h4>Contact Information</h4>
+            <h4 className=" font-[600] text-[22px] mb-[17px] text-white">
+              Contact Information
+            </h4>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. A omnis,
               iusto harum possimus non praesentium qui facere.
             </p>
             <span className="inline-block h-1 w-20 rounded-full bg-primary bg-opacity-20"></span>
-            <div className="mt-5 gap-5 flex flex-col">
+            <div className="mt-5 gap-[16px] flex flex-col">
               <div className=" flex p-4 md:p-5 card">
                 <span className="icon mr-4 inline-flex h-16 w-16 shrink-0 grow-0 basis-16 items-center justify-center rounded-full bg-primary bg-opacity-10 text-3xl text-primary">
                   <FiPhone />
@@ -179,6 +181,7 @@ const Form = () => {
           </div>
         </div>
       </div>
+      <span class="block pb-24 lg:pb-28 xl:pb-32"></span>
     </div>
   );
 };
